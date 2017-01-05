@@ -45,6 +45,8 @@ public class CoapTestThing {
 		addEndpoints(server);
 
 		server.start();
+
+		new UdpDiscoverySender().start();
 	}
 
 	/**
