@@ -13,8 +13,9 @@ public class SensorResource extends CoapResource {
         super(name);
 
         ResourceAttributes attributes = getAttributes();
-        attributes.setTitle("GET a random sensor value");
-        attributes.addResourceType("Sensor");
+        attributes.setTitle("GET a random light sensor value");
+        //https://openconnectivity.org/specs/OIC_Resource_Type_Specification_v1.1.0.pdf
+        attributes.addResourceType("oic.r.sensor.illuminance");
     }
 
     @Override
