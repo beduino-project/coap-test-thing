@@ -39,7 +39,9 @@ public class CoapTestThing {
 	public static void main(String[] args) throws Exception {
 		CoapServer server = new CoapServer();
 		server.setExecutor(Executors.newScheduledThreadPool(4));
-		
+
+		server.add(new SwitchResource("examplename"));
+		server.add(new SensorResource("windspeed"));
 		server.add(new CoapResource("actuators",false).add(new SwitchResource("lock1")));
 		server.add(new CoapResource("sensors",false).add(new SensorResource("temp1")));
 		addEndpoints(server);
