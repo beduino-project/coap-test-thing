@@ -40,10 +40,10 @@ public class CoapTestThing {
 		CoapServer server = new CoapServer();
 		server.setExecutor(Executors.newScheduledThreadPool(4));
 
-		server.add(new SwitchResource("examplename"));
-		server.add(new SensorResource("windspeed"));
-		server.add(new CoapResource("actuators",false).add(new SwitchResource("lock1")));
-		server.add(new CoapResource("sensors",false).add(new SensorResource("temp1")));
+		server.add(new SwitchResource("lightswitch", "Light Switch"));
+		server.add(new SensorResource("windspeed", false));
+		server.add(new CoapResource("actuators",false).add(new SwitchResource("lock1", "Security Lock")));
+		server.add(new CoapResource("sensors",false).add(new SensorResource("temp1", true)));
 		addEndpoints(server);
 
 		server.start();

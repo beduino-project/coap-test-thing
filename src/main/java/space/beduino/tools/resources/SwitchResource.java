@@ -13,11 +13,11 @@ public class SwitchResource extends CoapResource {
 
     private boolean status;
 
-    public SwitchResource(String name) {
+    public SwitchResource(String name, String title) {
         super(name);
 
         ResourceAttributes attributes = getAttributes();
-        attributes.setTitle("GET switch status (1 or 0) and POST (1 or 0) to control the switch");
+        attributes.setTitle(title);
         //https://openconnectivity.org/specs/OIC_Resource_Type_Specification_v1.1.0.pdf
         attributes.addResourceType("oic.r.switch.binary");
     }
