@@ -9,18 +9,29 @@ import org.eclipse.californium.core.server.resources.ResourceAttributes;
  */
 public class SensorResource extends CoapResource {
 
-    public SensorResource(String name) {
+    private boolean isNumeric;
+
+    public SensorResource(String name, boolean isNumeric) {
         super(name);
+        this.isNumeric = isNumeric;
 
         ResourceAttributes attributes = getAttributes();
-        attributes.setTitle("GET a random light sensor value");
         //https://openconnectivity.org/specs/OIC_Resource_Type_Specification_v1.1.0.pdf
-        attributes.addResourceType("oic.r.sensor.illuminance");
+        if(isNumeric) {
+            attributes.setTitle("Light Illuminance");
+            attributes.addResourceType("oic.r.sensor.illuminance");
+        } else {
+            attributes.setTitle("Windspeed");
+            attributes.addResourceType("oic.r.sensor");
+        }
     }
 
     @Override
     public void handleGET(CoapExchange exchange) {
         String payload = String.format("%1$,.2f",Math.random());
+        if(!isNumeric) {
+            payload += " km/h";
+        }
         exchange.respond(payload);
     }
 

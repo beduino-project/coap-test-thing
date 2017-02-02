@@ -41,7 +41,7 @@ public class UdpDiscoverySender {
                     try {
                         while (running) {
                             System.out.println("Sending discovery package");
-                            byte[] sendData = "beduino".getBytes();
+                            byte[] sendData = "beduino5683".getBytes();
                             DatagramPacket sendPacket = new DatagramPacket(sendData, sendData.length, GROUP, PORT);
                             serverSocket.send(sendPacket);
                             Thread.sleep(SLEEP_DELAY_IN_SECONDS * 1000L);
