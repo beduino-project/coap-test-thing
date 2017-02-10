@@ -26,6 +26,7 @@ import org.eclipse.californium.core.CoapServer;
 import org.eclipse.californium.core.network.CoapEndpoint;
 import org.eclipse.californium.core.network.EndpointManager;
 import org.eclipse.californium.core.network.config.NetworkConfig;
+import space.beduino.tools.resources.DimmerResource;
 import space.beduino.tools.resources.SensorResource;
 import space.beduino.tools.resources.SwitchResource;
 
@@ -41,9 +42,10 @@ public class CoapTestThing {
 		server.setExecutor(Executors.newScheduledThreadPool(4));
 
 		server.add(new SwitchResource("lightswitch", "Light Switch"));
-		server.add(new SensorResource("windspeed", false));
+		server.add(new SensorResource("windspeed", "Light Illuminance", false));
 		server.add(new CoapResource("actuators",false).add(new SwitchResource("lock1", "Security Lock")));
-		server.add(new CoapResource("sensors",false).add(new SensorResource("temp1", true)));
+		server.add(new CoapResource("sensors",false).add(new SensorResource("temp1","Windspeed", true)));
+		server.add(new DimmerResource("dim","LoungeLight",50f));
 		addEndpoints(server);
 
 		server.start();
