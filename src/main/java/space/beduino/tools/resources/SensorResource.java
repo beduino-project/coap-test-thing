@@ -11,17 +11,16 @@ public class SensorResource extends CoapResource {
 
     private boolean isNumeric;
 
-    public SensorResource(String name, boolean isNumeric) {
-        super(name);
+    public SensorResource(String endpointName, String title, boolean isNumeric) {
+        super(endpointName);
         this.isNumeric = isNumeric;
 
         ResourceAttributes attributes = getAttributes();
+        attributes.setTitle(title);
         //https://openconnectivity.org/specs/OIC_Resource_Type_Specification_v1.1.0.pdf
         if(isNumeric) {
-            attributes.setTitle("Light Illuminance");
             attributes.addResourceType("oic.r.sensor.illuminance");
         } else {
-            attributes.setTitle("Windspeed");
             attributes.addResourceType("oic.r.sensor");
         }
     }
