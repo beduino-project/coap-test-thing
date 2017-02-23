@@ -34,8 +34,7 @@ import space.beduino.tools.resources.SwitchResource;
  */
 public class CoapTestThing {
 
-    public static final byte[] MAC_ADDRESS = { (byte) 0x00, (byte) 0x80, (byte) 0x41, (byte) 0xae, (byte) 0xfd,
-            (byte) 0x7e }; // 00:80:41:ae:fd:7e
+    public static final String MAC_ADDRESS = "00:80:41:ae:fd:7e";
     public static final int COAP_PORT = NetworkConfig.getStandard().getInt(NetworkConfig.Keys.COAP_PORT);
 
     public static void main(String[] args) throws Exception {
