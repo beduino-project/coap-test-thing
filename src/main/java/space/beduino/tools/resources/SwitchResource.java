@@ -13,8 +13,8 @@ public class SwitchResource extends CoapResource {
 
     private boolean status;
 
-    public SwitchResource(String name, String title) {
-        super(name);
+    public SwitchResource(String endpointName, String title) {
+        super(endpointName);
 
         ResourceAttributes attributes = getAttributes();
         attributes.setTitle(title);
