@@ -43,9 +43,9 @@ public class CoapTestThing {
         server.setExecutor(Executors.newScheduledThreadPool(4));
 
         server.add(new SwitchResource("lightswitch", "Light Switch"));
-        server.add(new SensorResource("windspeed", "Light Illuminance", false));
+        server.add(new SensorResource("windspeed", "Light Illuminance", true));
         server.add(new CoapResource("actuators", false).add(new SwitchResource("lock1", "Security Lock")));
-        server.add(new CoapResource("sensors", false).add(new SensorResource("temp1", "Windspeed", true)));
+        server.add(new CoapResource("sensors", false).add(new SensorResource("temp1", "Windspeed", false)));
         server.add(new DimmerResource("dim", "LoungeLight", 50f));
         addEndpoints(server);
 

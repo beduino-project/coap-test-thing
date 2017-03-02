@@ -44,6 +44,12 @@
 				<groupId>${project.groupId}</groupId>
 			<artifactId>californium-core</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>jacob</groupId>
+			<artifactId>jacob</artifactId>
+            <version>1.0.0</version>
+			<!-- mvn install:install-file -Dfile="lib/jacob.jar" -DgroupId="jacob" -DartifactId="jacob" -Dversion="1.0.0" -Dpackaging="jar" -->
+		</dependency>
 	</dependencies>
 
 	<properties>
